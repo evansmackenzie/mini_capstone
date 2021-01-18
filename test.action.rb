@@ -14,4 +14,6 @@ require "http"
 
 #pp response.parse
 
-#testing 
+#testing create action
+puts "please create a product"
+ response = HTTP.post("http://localhost:3000/api/products")

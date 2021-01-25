@@ -13,10 +13,7 @@ class Api::ProductsController < ApplicationController
       @all_products = @all_products.order(:price)
     end
 
-    # if params[:discount]
-    #   @all_products = Product.where("price < ?", 3)
-    # end
-
+    
     render "index.json.jb"
   end
 
@@ -31,7 +28,8 @@ class Api::ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      image_url: params[:image_url]
+      inventory: params[:inventory],
+      supplier_id: params[:supplier_id]
     )
     if @product.save
       render "show.json.jb"
@@ -46,7 +44,8 @@ class Api::ProductsController < ApplicationController
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
     @product.description = params[:description] || @product.description
-    @product.image_url = params[:image_url] || @product.image_url
+    @product.inventory = params[:inventory] || @product.inventory
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
 
     if @product.save
       render "show.json.jb"

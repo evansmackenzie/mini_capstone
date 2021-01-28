@@ -8,5 +8,6 @@
       tax_price: product.tax
     },
   supplier: product.supplier,
-  images: product.images
+  images: product.images,
+  categories: product.categories
 }
